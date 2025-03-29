@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs - JobTribe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="find-jobs.js"></script>
+</head>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" onclick="navigateTo('/')">JobHive</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#find">Find Jobs</a></li>
+            <li><a href="/file/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="find">
+        <h2>Find Your Dream Job</h2>
+        <div class="filter-container">
+            <input type="text" id="filterExperience" class="filter-input" placeholder="Filter by Experience">
+            <input type="text" id="filterSkills" class="filter-input" placeholder="Enter job-title">
+            <input type="text" id="filterLocation" class="filter-input" placeholder="Filter by Location">
+        </div>
+        <div class="job-list" id="jobList"></div>
+    </div>
+    <footer class="footer">
+        <a href="#">About us</a>
+        <a href="#">Careers</a>
+        <a href="#">Employer home</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Credits</a>
+        <a href="#">Help center</a>
+        <a href="#">Summons/Notices</a>
+        <a href="#">Grievances</a>
+        <a href="#">Report issue</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms & conditions</a>
+        <a href="#">Fraud alert</a>
+        <a href="#">Trust & safety</a>
+        <p>&copy; 2025 JobTribe. All Rights Reserved.</p> 
+    </footer>
+
+
+    <script type="module">
+        import jobs from "../utils/mock.js";
+    
+        function displayJobs(filteredJobs = jobs) {
+            const jobListContainer = document.getElementById("jobList");
+            jobListContainer.innerHTML = filteredJobs.map(job => `
+                <div class="job-card">
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-company">${job.company}</div>
+                    <div class="job-location">${job.location}</div>
+                    <div class="job-experience">Experience: ${job.experience} years</div>
+                </div>
+            `).join('');
+        }
+    
+        function applyFilters() {
+            const experienceValue = document.getElementById("filterExperience").value.trim();
+            const skillsValue = document.getElementById("filterSkills").value.trim().toLowerCase();
+            const locationValue = document.getElementById("filterLocation").value.trim().toLowerCase();
+    
+            const filteredJobs = jobs.filter(job => {
+                const jobExperience = parseInt(job.experience) || 0;
+                const filterExperience = experienceValue ? parseInt(experienceValue) : null;
+                
+                const matchesExperience = filterExperience === null || jobExperience === filterExperience || (filterExperience >= 6 && jobExperience >= 6);
+                const matchesSkills = !skillsValue || job.skills.toLowerCase().includes(skillsValue);
+                const matchesLocation = !locationValue || job.location.toLowerCase().includes(locationValue);
+                
+                return matchesExperience && matchesSkills && matchesLocation;
+            });
+            displayJobs(filteredJobs);
+        }
+    
+        document.getElementById("filterExperience").addEventListener("input", applyFilters);
+        document.getElementById("filterSkills").addEventListener("input", applyFilters);
+        document.getElementById("filterLocation").addEventListener("input", applyFilters);
+    
+        window.onload = () => displayJobs();
+    </script>
+
+</body>
+</html>

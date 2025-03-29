@@ -1,0 +1,626 @@
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004080;
+    padding: 15px 20px;
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Dancing Script', cursive;
+    color: #FFD700; /* Golden yellow for contrast */
+    text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.7);
+    text-transform: capitalize;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    text-shadow: 0px 0px 15px rgba(255, 215, 0, 1), 0px 0px 25px rgba(255, 223, 100, 0.9);
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 215, 0, 0.6);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Individual List Items in Navigation */
+.nav-links li {
+    margin: 10px 20px;
+}
+
+/* Links Styling */
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding: 8px 12px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;  /* Enhance text styling with uppercase */
+}
+
+/* Hover effect for Links */
+.nav-links a:hover {
+    color: #ffcc00; /* Change color on hover */
+    transform: scale(1.1); /* Slight scale effect on hover */
+}
+
+/* Adding Underline Animation on Hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffcc00; /* Underline effect in yellow */
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1); /* Underline expands on hover */
+}
+
+/* Mobile Responsive Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+/* Contact Info Section */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 10px;
+    text-align: center;
+    background: #f8f8fa;
+}
+
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+.info-box i {
+    font-size: 26px;
+    color: #004080;
+    margin-bottom: 12px;
+}
+
+/* Google Map */
+.map-section {
+    text-align: center;
+    padding: 50px 0;
+    background: #fff;
+}
+
+.map-section iframe {
+    width: 85%;
+    height: 320px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Media */
+.social-media {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    font-size: 28px;
+    color: #004080;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #ff5722;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #002d5a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 15px;
+}
+
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #eceff1, #ffffff);
+    margin: 0;
+    padding: 0;
+    color: #333;
+
+}
+
+
+.heading-container {
+    position: relative;
+    font-family: Arial, sans-serif;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px; /* Adjust the value as needed */
+}
+
+
+.heading {
+    font-size: 4rem;
+    font-weight: bold;
+    position: absolute;
+    animation: animateText 3s infinite alternate;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+    top: 50%; /* Push it down */
+    transform: translateY(-50%); /* Center it vertically */
+}
+
+
+.heading.one {
+    color: transparent;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #ffea00, #00ff00, #00ffff, #0000ff, #8a2be2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    z-index: 2;
+    
+}
+
+.heading.two {
+    color: rgba(255, 255, 255, 0.3);
+    transform: translateZ(-30px);
+    z-index: 1;
+}
+
+
+
+@keyframes animateText {
+    0% { transform: translateY(0) rotateY(0deg); }
+    50% { transform: translateY(-5px) rotateY(10deg); } /* Lower bounce */
+    100% { transform: translateY(0) rotateY(0deg); }
+}
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%;
+    margin-top: 30px;
+}
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Left Side - Image & Text */
+.contact-left {
+    flex: 1;
+    padding: 50px;
+    background: linear-gradient(135deg, #004080, #002d5a);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    margin: 0 auto 20px;
+}
+
+.contact-text {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-text ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-text ul li::before {
+    content: '✔';
+    color: #ffcc00;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Right Side - Contact Form */
+.contact-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Form */
+.contact-form {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+}
+
+.contact-form h2 {
+    font-size: 26px;
+    text-align: center;
+    color: #004080;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Form Inputs */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #004080;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.1), inset -3px -3px 6px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0px 0px 8px rgba(0, 64, 128, 0.4);
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(45deg, #004080, #002d5a);
+    color: white;
+    font-size: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+    background: #ff5722;
+    transform: scale(1.05);
+}
+/* ----------------------------------------------------------------------------------------------------------------------- */
+/* Contact Info Section */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 10px;
+    text-align: center;
+    background: #f8f8fa;
+}
+
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+.info-box i {
+    font-size: 26px;
+    color: #004080;
+    margin-bottom: 12px;
+}
+
+
+/*  */
+/* Google Map */
+.map-section {
+    text-align: center;
+    padding: 50px 0;
+    background: #fff;
+}
+
+.map-section iframe {
+    width: 85%;
+    height: 320px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Media */
+.social-media {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    font-size: 28px;
+    color: #004080;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #ff5722;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #002d5a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 15px;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------ */
+.testimonials {
+    margin-top: 40px;
+    text-align: center;
+    overflow: hidden;
+    padding: 20px 10px;
+    background: linear-gradient(145deg, #0a74da, #1b9bff, #0056b3);
+    position: relative;
+}
+
+#testimonial-container {
+    display: flex;
+    will-change: transform;
+    flex-wrap: nowrap;
+    gap: 20px;
+    animation: marquee 30s linear infinite; /* Same animation for all devices */
+}
+
+/* Testimonial Item Styling */
+.testimonial-item {
+    background: linear-gradient(145deg, #cce7ff, #99ccff);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    max-width: 280px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 1s ease-in-out;
+    flex: 0 0 auto;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.testimonial-item p {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #0a2855;
+    margin-bottom: 8px;
+}
+
+.testimonial-item h4 {
+    margin: 8px 0 4px;
+    font-size: 16px;
+    color: #003366;
+    font-weight: 700;
+}
+
+.testimonial-item span {
+    font-size: 10px;
+    color: #1a4a7a;
+    display: block;
+}
+
+.testimonial-item p:last-child {
+    font-size: 12px;
+    color: #00509e;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* Right to Left Marquee Animation (Same for Desktop & Mobile) */
+@keyframes marquee {
+    0% { transform: translateX(100%); }  /* Start from right */
+    100% { transform: translateX(-100%); } /* Move to left */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #testimonial-container {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+        animation: marquee 20s linear infinite; /* Same right-to-left animation */
+    }
+
+    .testimonial-item {
+        max-width: 85%;
+        flex: 0 0 auto;
+    }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-container {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+
+    .contact-left,
+    .contact-right {
+        border-radius: 0;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .contact-image {
+        max-width: 80%;
+    }
+
+    .contact-right {
+        justify-content: center;
+    }
+
+    .contact-form {
+        max-width: 95%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+}

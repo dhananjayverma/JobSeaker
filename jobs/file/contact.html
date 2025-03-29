@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo" onclick="navigateTo('/')">JobHive</div>
+    
+            <ul class="nav-links">
+                <li><a href="/file/find-jobs.html">Find Jobs</a></li>
+                <li><a href="#Number">Connect</a></li>
+                <li><a href="#conatct">About</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    
+
+    <!-- <h1>Helping You Find Your Dream Job</h1> -->
+    <div class="heading-container">
+        <div class="heading one">Helping You Find Your Dream Job</div>
+        <div class="heading two">Helping You Find Your Dream Job</div>
+    </div>
+
+    <section class="contact-section" id="conatct">
+        <div class="contact-container">
+            <div class="contact-left">
+                <p>We would love to hear from you! Reach out via the form below or use the contact information provided.</p>
+
+                <img src="/image/job.webp" alt="Job Search" class="contact-image">
+
+                <div class="contact-text">
+                    <p><strong>Looking for your next career opportunity?</strong> Have questions or need assistance? We're here to help! 🚀</p>
+                    <ul>
+                        <li>✅ Find the right job that matches your skills</li>
+                        <li>✅ Get personalized career guidance</li>
+                        <li>✅ Connect with top employers</li>
+                    </ul>
+                    <p>Drop us a message, and we’ll get back to you ASAP! Your dream job is just a click away. 🎯</p>
+                    <p><strong>📞 Contact Us Today!</strong></p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-right">
+                <form class="contact-form" action="/submit" method="POST">
+                    <h2>Get In Touch</h2>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject of Your Message" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div id="testimonial-container"></div>
+        </div>
+    </div>
+    <!-- Contact Info -->
+    <section class="contact-info" id="Number">
+        <div class="info-box">
+            <i class="fas fa-phone-alt"></i>
+            <p><strong>Phone:</strong>9546251027</p>
+        </div>
+
+        <div class="info-box">
+            <i class="fas fa-envelope"></i>
+            <p><strong>Email:</strong>dhananjaysvs97@gmail.com</p>
+        </div>
+
+        <div class="info-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <p><strong>Address:</strong> Bengaluru, Karnataka 560095</p>
+        </div>
+    </section>
+
+    <!-- Google Map -->
+    <section class="map-section">
+        <h2>Find Us Here</h2>
+        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" allowfullscreen loading="lazy"></iframe>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 JobTribe. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+
+import test from "../utils/testm.js";
+
+const testimonialContainer = document.getElementById('testimonial-container');
+
+test.forEach(({ name, designation, testimonial, rating }) => {
+    const stars = '⭐'.repeat(rating);
+    const testimonialHTML = `
+        <div class="testimonial-item">
+            <p class="testimonial-text">"${testimonial}"</p>
+            <p class="testimonial-author">- ${name}, ${designation}</p>
+            <p class="testimonial-rating">${stars}</p>
+        </div>
+    `;
+    testimonialContainer.innerHTML += testimonialHTML;
+});
+
+
+</script>
+</body>
+</html>
+
+

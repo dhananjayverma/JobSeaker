@@ -1,0 +1,111 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTribe - Find Your Dream Job</title>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="/css/navbar.css">
+ 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" onclick="navigateTo('/')">JobHive</div>
+
+        <ul class="nav-links">
+            <li><a href="/file/find-jobs.html">Find Jobs</a></li>
+            <li><a href="#trending">Trending Jobs</a></li>
+            <li><a href="/file/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Find the perfect job tailored for you</h1>
+        <p>Discover opportunities that match your skills and experience</p>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" placeholder="Enter Job Title" class="job-search-input" id="jobTitle">
+        <input type="text" placeholder="Enter Skills" class="job-search-input" id="skills">
+        <select id="experience" class="search-select">
+            <option value="">experience </option>
+            <option value="Fresher">Fresher</option>
+            <option value="1 year">1 year</option>
+            <option value="2 years">2 years</option>
+            <option value="3 years">3 years</option>
+            <option value="4 years">4 years</option>
+        </select>
+        <input type="text" placeholder="Enter Location" class="job-search-input" id="location">
+        <button class="search-icon" onclick="handleSearch()">🔍</button>
+    </div>
+
+    <section class="trending-jobs" id="trending">
+        <h2>Trending Jobs</h2>
+        <div class="job-list-wrapper">
+            <div class="job-list" id="jobList"></div>
+        </div>
+    </section>
+
+
+    
+    <footer class="footer">
+        <a href="#">About us</a>
+        <a href="#">Careers</a>
+        <a href="#">Employer home</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Credits</a>
+        <a href="#">Help center</a>
+        <a href="#">Summons/Notices</a>
+        <a href="#">Grievances</a>
+        <a href="#">Report issue</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms & conditions</a>
+        <a href="#">Fraud alert</a>
+        <a href="#">Trust & safety</a>
+        <p>&copy; 2025 JobTribe. All Rights Reserved.</p> 
+    </footer>
+
+
+    <script type="module">
+        import jobs from "./utils/mock.js";
+    
+        function displayJobs() {
+            const jobList = document.getElementById("jobList");
+            jobList.innerHTML = "";
+            jobs.forEach(job => {
+                const jobCard = document.createElement("div");
+                jobCard.classList.add("job-card");
+                jobCard.innerHTML = `
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-company">${job.company}</div>
+                    <div class="job-location">${job.location}</div>
+                    <div class="job-experience">Experience: ${job.experience}</div>
+                `;
+                jobList.appendChild(jobCard);
+            });
+        }
+    
+        window.onload = () => {
+            displayJobs();
+    
+            // Marquee animation pause on touch
+            const marqueeElement = document.querySelector('.marquee');
+            if (marqueeElement) {
+                marqueeElement.addEventListener('touchstart', () => {
+                    marqueeElement.classList.add('paused');
+                });
+    
+                marqueeElement.addEventListener('touchend', () => {
+                    marqueeElement.classList.remove('paused');
+                });
+            }
+        };
+    </script> 
+   
+</body>
+</html>
+
